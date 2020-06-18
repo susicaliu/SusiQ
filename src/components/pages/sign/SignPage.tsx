@@ -72,9 +72,7 @@ class SignPage extends React.Component<Props, State> {
   async login() {
     // const result = await axios.post('user/login');
     const result = {'data': {'statecode': 0}};
-    console.log("enter login");
     if(result.data.statecode === 0){
-      console.log("statecode correct");
       this.props.changeLoginState();
     }
     else{
@@ -88,25 +86,16 @@ class SignPage extends React.Component<Props, State> {
   render() {
     const signInBox = (
       <div className = 'signinbox'>
-        <Input placeholder = 'Username or Email' onChange = {(value)=>this.updateUoE(value)}>
-        </Input>
-        <Input placeholder = 'Password' onChange = {(e)=>this.updatePassword(e)}>
-        </Input>
-        <Button onClick = {()=>this.login()}>
-          Login
-        </Button>
+        <pre><Input placeholder = 'Username or Email' onChange = {(value)=>this.updateUoE(value)}></Input></pre>
+        <pre><Input placeholder = 'Password' onChange = {(e)=>this.updatePassword(e)}></Input></pre>
+        <Button onClick = {()=>this.login()}>Login</Button>
       </div>);
     const signUpBox = (
       <div className = 'signinbox'>
-        <Input placeholder = 'Email' onChange = {(e)=>this.updateEmail(e)}>
-        </Input>
-        <Input placeholder = 'Username' onChange = {(e)=>this.updateUsername(e)}>
-        </Input>
-        <Input placeholder = 'Password' onChange = {(e)=>this.updatePassword(e)}>
-        </Input>
-        <Button onClick = {()=>this.register()}>
-          Register
-        </Button>
+        <pre><Input placeholder = 'Email' onChange = {(e)=>this.updateEmail(e)}></Input></pre>
+        <pre><Input placeholder = 'Username' onChange = {(e)=>this.updateUsername(e)}></Input></pre>
+        <pre><Input placeholder = 'Password' onChange = {(e)=>this.updatePassword(e)}></Input></pre>
+        <Button onClick = {()=>this.register()}>Register</Button>
       </div>);
     return (
       (this.props.loginState)
@@ -115,12 +104,8 @@ class SignPage extends React.Component<Props, State> {
         </div>)
       :(<div className = 'signpage'>
           <p>signPage</p>
-          <Button disabled = {!this.state.inupstate} onClick ={()=>this.changeInup()}>
-            Signin
-          </Button>
-          <Button disabled = {this.state.inupstate} onClick ={()=>this.changeInup()}>
-            Signup
-          </Button>
+          <Button disabled = {!this.state.inupstate} onClick ={()=>this.changeInup()}>Signin</Button>
+          <Button disabled = {this.state.inupstate} onClick ={()=>this.changeInup()}>Signup</Button>
           {this.state.inupstate ? signUpBox : signInBox}
         </div>)
     );

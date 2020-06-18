@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Button } from 'antd';
 import Meta from 'antd/lib/card/Meta';
-import EditPage from './edit/editp/EditPage';
+import EditPage from './edit/EditPage';
 import AnalyzePage from './analyze/AnalyzePage';
 type Props = {
     pageNumber: number,
@@ -24,7 +24,7 @@ class UserPage extends React.Component<Props, State> {
     this.props.changePageNumber(5);
   }
   clickAnalyze() {
-    this.props.changePageNumber(6);
+    this.props.changePageNumber(8);
   }
 
   render() {
@@ -60,7 +60,7 @@ class UserPage extends React.Component<Props, State> {
     );
     return (
       <div className = 'userpage'>
-        {(this.props.pageNumber === 4) ? uPage : (this.props.pageNumber === 5) ? ePage : (this.props.pageNumber === 6) ? aPage : (<div/>)}
+        {(this.props.pageNumber === 4) ? uPage : (this.props.pageNumber <= 7) ? ePage : (this.props.pageNumber <= 8) ? aPage : (<div/>)}
       </div>
     );
   }
