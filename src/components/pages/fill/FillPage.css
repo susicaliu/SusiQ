@@ -24,7 +24,39 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+div.fillingform{
+  margin-top:7vh;
+  margin-left:18vw;
+  padding-top: 2vh;
+  width:62vw;
+  height:86vh;
+  background-color:#FFFFFF;
+  overflow: auto;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+div.fill-error-tip{
+  font-size: 14px;
+  color: red;
+  float: inline-end;
+}
+div.FillPage{
+  background-image: url(https://a.icons8.com/lbkWildl/19bXPk/my.png);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
 
+}
+div.FormTitle{
+  background-image: url("https://a.icons8.com/lbkWildl/Rz8Kah/mask-group.png");
+  width: 58vw;
+  margin-left: 2vw;
+  height: 10vh;
+  font-size: 48px;
+  color: #FFFFFF;
+  padding-top: 1.5vh;
+}
 .FillPage-link {
   color: #61dafb;
 }

@@ -3,6 +3,7 @@ import {Button} from 'antd'
 import AboutPage from './pages/about/AboutPage';
 import HomePage from './pages/home//HomePage';
 import SignPage from './pages/sign/SignPage';
+
 type Props = {};
 
 type State = {
@@ -35,7 +36,9 @@ class SusiQ extends React.Component<Props, State> {
         pageNumber: pageNumber
       });
   }
+  emptyOp(uname:string){
 
+  }
   render() {
     const currentPage = (this.state.pageNumber === 1) 
     ? (<HomePage loginState = {this.state.loginState} pageNumber = {this.state.pageNumber} changeLoginState = {this.changeLoginState} changePageNumber = {this.changePageNumber}/>)
@@ -44,38 +47,41 @@ class SusiQ extends React.Component<Props, State> {
     : (this.state.pageNumber === 3)
     ? (<div/>)
     : (this.state.pageNumber <= 8)
-    ? (<SignPage loginState = {this.state.loginState} pageNumber = {this.state.pageNumber} changeLoginState = {this.changeLoginState} changePageNumber = {this.changePageNumber}/>)
+    ? (<SignPage uName={''} updateUName={this.emptyOp} loginState = {this.state.loginState} pageNumber = {this.state.pageNumber} changeLoginState = {this.changeLoginState} changePageNumber = {this.changePageNumber}/>)
     : (<div/>);
     const buttonGroup = (this.state.loginState === false) 
-    ?(<div>
-        <Button onClick = {()=>this.changePageNumber(1)}>
-          Homegage
+    ?(<div className='buttonbox'>
+        <Button onClick = {()=>this.changePageNumber(1)} type="link" ghost>
+          <img className='mybutton' src="./png/homebutton.png"></img>
+        </Button>  
+        <Button onClick = {()=>this.changePageNumber(4)} type="link" ghost>
+          <img className='mybutton' src="./png/signinupbutton.png"></img>
         </Button>
-        <Button onClick = {()=>this.changePageNumber(4)}>
-          SignIn/Up
-        </Button>
-        <Button onClick = {()=>this.changePageNumber(2)}>
-          About
+        <Button onClick = {()=>this.changePageNumber(2)} type="link" ghost>
+          <img className='mybutton' src="./png/aboutbutton.png"></img>
         </Button>
       </div>)
-    :(<div>
-      <Button onClick = {()=>this.changePageNumber(1)}>
-        HomePage
+    :(<div className='buttonbox'>
+      <Button onClick = {()=>this.changePageNumber(1)} type="link" ghost>
+        <img className='mybutton' src="./png/homebutton.png"></img>
       </Button>
-      <Button onClick = {()=>this.changePageNumber(4)}>
-        UserPage
+      <Button onClick = {()=>this.changePageNumber(4)} type="link" ghost>
+        <img className='mybutton' src="./png/userbutton.png"></img>
       </Button>
-      <Button onClick = {()=>this.changeLoginState()}>
-        Logout
+      <Button onClick = {()=>this.changeLoginState()} type="link" ghost>
+        <img className='mybutton' src="./png/logoutbutton.png"></img>
       </Button>
-      <Button onClick = {()=>this.changePageNumber(2)}>
-        About
+      <Button onClick = {()=>this.changePageNumber(2)} type="link" ghost>
+        <img className='mybutton' src="./png/aboutbutton.png"></img>
       </Button>
     </div>);
     return (
         <div className = 'susiq'>
-            {buttonGroup}
             {currentPage}
+            {buttonGroup}
+            <Button style={{position:'fixed',left:'0px',top:'0px'}} onClick = {()=>this.changePageNumber(1)} type='link' ghost>
+              <img className='mylogo' src="./png/logo.png"></img>
+            </Button>
         </div>
     );
   }

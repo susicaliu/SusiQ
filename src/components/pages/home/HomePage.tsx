@@ -1,5 +1,4 @@
 import React from 'react';
-
 type Props = {
     loginState: boolean,
     pageNumber: number,
@@ -23,7 +22,8 @@ class HomePage extends React.Component<Props, State> {
   render() {
     return (
         <div className = 'homepage'>
-          <p>HomePage</p>
+          <img id="homeback" src="./png/homebanner.png"></img>
+          <img id="hometitle" src="./png/hometitle.png"></img>
         </div>
     );
   }

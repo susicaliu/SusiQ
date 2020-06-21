@@ -1,9 +1,10 @@
-import { Input, Checkbox, Divider, Button } from 'antd';
+import { Input, Checkbox, Divider, Button, Cascader } from 'antd';
 import React, { ChangeEvent } from 'react';
 import { CheckboxChangeEvent } from 'antd/lib/checkbox';
 import {
     CloseCircleOutlined
 } from '@ant-design/icons';
+import { CascaderValueType } from 'antd/lib/cascader';
 type Props = {
     order: number,
     fillState: boolean,
@@ -15,6 +16,8 @@ type Props = {
     updateAnswer: any,
     filling: number,
     updateFillState: any,
+    formOrder: number,
+    options: any,
 };
 type State = {
 };
@@ -52,6 +55,19 @@ class TextInput extends React.Component<Props, State> {
         newItemInfo.mustfill = !newItemInfo.mustfill;
         this.props.updateItemInfo(this.props.order,newItemInfo);
     }
+    changeCascade(){
+        const newItemInfo = this.deepCopy(this.props.itemInfo);
+        newItemInfo.isCascade = !newItemInfo.isCascade;
+        this.props.updateItemInfo(this.props.order,newItemInfo); 
+    }
+    changeCascader(e:CascaderValueType){
+        if(e && e.length > 1){
+            const newItemInfo = this.deepCopy(this.props.itemInfo);
+            newItemInfo.questionId = e[0];
+            newItemInfo.optionId = e[1];
+            this.props.updateItemInfo(this.props.order,newItemInfo);
+        }
+    }
     setCancelVisible(s:boolean){
         const newItemInfo = this.deepCopy(this.props.itemInfo);
         newItemInfo.cancelVisible = s;
@@ -85,33 +101,38 @@ class TextInput extends React.Component<Props, State> {
     render() {
         return (
             <div className = 'textinput'>
-                <div className = 'formitem' style={{width:'60%'}} onClick = {()=>this.handleClick()} onMouseEnter = {()=>this.setCancelVisible(true)} onMouseLeave = {()=>this.setCancelVisible(false)}>
+                <div className = 'formitem' onClick = {()=>this.handleClick()} onMouseEnter = {()=>this.setCancelVisible(true)} onMouseLeave = {()=>this.setCancelVisible(false)}>
                     {this.props.itemInfo.cancelVisible ? 
                     <div className = 'mycancel'>
                         <CloseCircleOutlined onClick={()=>this.props.removeFormItem(this.props.order)}/>
                     </div> 
                     :<div/>
                     }
-                    <p>{this.props.itemInfo.title}</p>
+                    <p>{String(this.props.formOrder)+'.'+this.props.itemInfo.title}</p>
                     <p>{this.props.itemInfo.description}</p>
                     {(this.props.filling === 1) ?
-                    <div>这是个必填项</div>
+                    <div className='fill-error-tip'>这是个必填项</div>
                     :<div/>
                     }
                     <pre><Input placeholder = {this.props.itemInfo.defaultCont} disabled = {!this.props.fillState} onChange = {(e)=>this.handleValueChange(e)}></Input></pre>                
                 </div>
                 {(!this.props.fillState && this.props.curId === this.props.order) ?
-                <div className = 'mypanel' style={{position:'fixed',right:'20px',top:'100px', width:'300px'}}>
-                    <p>标题</p>
-                    <pre><Input defaultValue={this.props.itemInfo.title} onChange={(e)=>this.changeTitle(e)}></Input></pre>
-                    <p>描述</p>
+                <div className = 'mypanel'>
+                    <Checkbox onChange={()=>this.changeCascade()} checked={this.props.itemInfo.isCascade}>是否是级联问题</Checkbox>
+                    {this.props.itemInfo.isCascade
+                    ? <Cascader options={this.props.options} onChange={(e)=>this.changeCascader(e)} value={[this.props.itemInfo.questionId,this.props.itemInfo.optionId]}/>
+                    : <div/>}
+                    <Divider></Divider>
+                    <p className="mypanel-p">标题</p>
+                    <pre><Input className="mypanel-input" defaultValue={this.props.itemInfo.title} onChange={(e)=>this.changeTitle(e)} onBlur={(e)=>this.changeTitle(e)}></Input></pre>
+                    <p className="mypanel-p">描述</p>
                     {(this.props.filling === 1) ?
                     <div>这是个必填项</div>
                     :<div/>
                     }
-                    <pre><Input defaultValue={this.props.itemInfo.description} onChange={(e)=>this.changeDescription(e)}></Input></pre>
-                    <p>默认提示文字</p>
-                    <pre><Input onChange={(e)=>this.changeDefaultCont(e)}></Input></pre>
+                    <pre><Input className="mypanel-input" defaultValue={this.props.itemInfo.description} onChange={(e)=>this.changeDescription(e)} onBlur={(e)=>this.changeDescription(e)}></Input></pre>
+                    <p className="mypanel-p">默认提示文字</p> 
+                    <pre><Input className="mypanel-input" onChange={(e)=>this.changeDefaultCont(e)} onBlur={(e)=>this.changeDefaultCont(e)}></Input></pre>
                     <Checkbox onChange={(e)=>this.changeMustFill(e)}>这是个必填项</Checkbox>
                 </div>
                 :<div/>}    

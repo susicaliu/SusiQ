@@ -11,3 +11,302 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+div.susiq{
+  width: 100%;
+  height: 100%;
+}
+img.mybutton:hover{
+  filter: 
+  drop-shadow(0 0 1px #777777) 
+  drop-shadow(0 0 10px #999999) 
+  drop-shadow(0 0 5px #dddddd);
+  -webkit-filter: 
+  drop-shadow(0 0 1px #777777) 
+  drop-shadow(0 0 10px #999999) 
+  drop-shadow(0 0 5px #dddddd);
+}
+img.mysmallbutton{
+  margin-top: 10px;
+  width: 87px; 
+  height: 48px; 
+}
+img.mysmallbutton:hover{
+  filter: 
+  drop-shadow(0 0 1px #B60F48) 
+  /* drop-shadow(0 0 3px #C16B89)  */
+  drop-shadow(0 0 3px #ffffff);
+  -webkit-filter: 
+  drop-shadow(0 0 1px #B60F48) 
+  /* drop-shadow(0 0 3px #C16B89)  */
+  drop-shadow(0 0 3px #ffffff);
+}
+img.mylogo:hover{
+  filter: 
+  drop-shadow(0 0 5px #B60F48) 
+  drop-shadow(0 0 10px #C16B89) 
+  drop-shadow(0 0 5px #ffffff);
+  -webkit-filter: 
+  drop-shadow(0 0 5px #B60F48) 
+  drop-shadow(0 0 10px #C16B89) 
+  drop-shadow(0 0 5px #ffffff);
+}
+input#edit-form-title{
+  background: transparent;
+  outline: transparent;
+  border: transparent;
+  text-align: center;
+}
+button.basiccomp{
+  width: 13vw;
+  height: 6vh;
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #ffffff;
+  color: #999999;
+  border: 2px;
+  border-color: white;
+  border-radius: 20px;
+  outline: 0px;
+  text-align: left;
+  padding-left: 30px;
+}
+button.basiccomp:hover{
+  background-color: #C8E3F9;
+  color: #ffffff;
+}
+button.basiccomp:active,button.basiccomp:visited{
+  background-color: #2F85CB;
+  color: #ffffff;
+}
+button.extencomp{
+  width: 13vw;
+  height: 6vh;
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #ffffff;
+  color: #999999;
+  border: 2px;
+  border-color: white;
+  border-radius: 20px;
+  outline: 0px;
+  text-align: left;
+  padding-left: 30px;
+}
+button.extencomp:hover{
+  background-color: #F9E3E9;
+  color: #ffffff;
+}
+button.extencomp:active,button.extencomp:visited{
+  background-color: #C57495;
+  color: #ffffff;
+}
+img.compicon{
+  width: 5vh;
+  height: 5vh;
+  background-color: #ffffff;
+  border-radius: 3vh;
+  margin-right: 1vh;
+  padding: 1.5vh;
+}
+div.mypanel{
+  position: fixed;
+  right: 0vh;
+  top: 7vh;
+  width:17vw;
+  height:80vh;
+  background-color:#FFFFFF;
+  padding-top: 2vh;
+  font-size: 20px;
+}
+div.formitem{
+  width: 58vw;
+  margin-left: 2vw;
+  margin-top: 5vh;
+  border-width: 3px;
+  border-color: #cccccc;
+  background-color: #ffffff;
+  padding: 20px 8vw;
+  font-size: 24px;
+  text-align: left;
+}
+div.editformtitle{
+  background-image: url("https://a.icons8.com/lbkWildl/Rz8Kah/mask-group.png");
+  width: 58vw;
+  margin-left: 2vw;
+  height: 10vh;
+  font-size: 48px;
+  color: #FFFFFF;
+  padding-top: 1.5vh;
+}
+div.editform{
+  margin-top:7vh;
+  margin-left:18vw;
+  padding-top: 2vh;
+  width:62vw;
+  height:86vh;
+  background-color:#FFFFFF;
+  overflow: auto;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+div.analyzeform{
+  margin-top:7vh;
+  padding-top: 2vh;
+  width:100vw;
+  height:86vh;
+  background-color:#FFFFFF;
+  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: center;
+}
+div.signpage{
+  width:90vw;
+  height:100vh;
+}
+div.settingform{
+  margin-top:7vh;
+  margin-left:18vw;
+  padding-top: 2vh;
+  width:62vw;
+  height:86vh;
+  background-color:#FFFFFF;
+  overflow: auto;
+  overflow-x: auto;
+  overflow-y: auto;
+  font-size: 22px;
+}
+div.pubform{
+  margin-top:7vh;
+  margin-left:18vw;
+  padding-top: 2vh;
+  width:62vw;
+  height:86vh;
+  background-color:#FFFFFF;
+  overflow: auto;
+  overflow-x: auto;
+  overflow-y: auto;
+  font-size: 22px;
+  text-align: left;
+}
+p.pub-title{
+  font-size: 22px;
+  font-weight: bold;
+  margin-left: 10%;
+}
+p#sign-error-tip{
+  font-size: 20px;
+  color: #FFFFFF;
+}
+div.mycancel{
+  float: right;
+}
+div.fillingform::-webkit-scrollbar {
+  display: none;
+}
+div.editform::-webkit-scrollbar {
+  display: none;
+}
+.mypanel-p{
+  font-size: 18px;
+  color: #C390A7;
+  text-align: left;
+  padding-left: 20px;
+}
+input.mypanel-input{
+  border-bottom: 1px solid #dbdbdb;
+  border-top:0px;
+  border-left:0px;
+  border-right:0px;
+  width: 90%;
+}
+div.signcard{
+  width: 50vw;
+  height: 60vh;
+  left: 25vw;
+  top: 20vh;
+  position: fixed;
+}
+@media screen and (min-width: 800px)
+{
+  div.buttonbox{
+      position: fixed;
+      right: 20px;
+      top: 20px;
+  }
+  #homeback {
+      width: 100%;
+      height: 100%;
+      left: 0px;
+      right: 0px;
+      position: fixed;
+  }
+  #hometitle{
+    position: fixed;
+    right: 22vw;
+    bottom: 30vh;
+  }
+  img#signback{
+    width: 50vw;
+    height: 60vh;
+    left: 25vw;
+    top: 20vh;
+    position: fixed;
+  }
+  img.signinboxback{
+    right: 32vw;
+    bottom: 31vh;
+    height: 40vh;
+    position: fixed;
+  }
+  div.signinbox{
+    height: 32vh;
+    width: 18vw;
+    right: 32vw;
+    bottom: 31vh;
+    position: fixed;
+    padding-left: 2vw;
+  }
+  div.signupbox{
+    height: 32vh;
+    width: 18vw;
+    right: 32vw;
+    bottom: 31vh;
+    position: fixed;
+    padding-left: 2vw;
+  }
+  div#signinupshift{
+    right: 33vw;
+    top: 30vh;
+    height: 40vh;
+    position: fixed;
+  }
+  input.logput{
+    width: 14vw;
+    height: 59px;
+    border-radius: 20px;
+    border: solid #ffffff;
+    border-width: 2px;
+    background: rgba(214,70,93,0.4);
+    color: white;
+    font-size: 20px;
+    margin-left: 0vw;
+    margin-right: 0.5vw;
+    position: relative;
+  }
+}
+
+.HomePage {
+  text-align: center;
+}
+@media screen and (max-width: 800px)
+{
+  #homeback {
+      width: 100%;
+      height: 100%;
+      top: 0px;
+      position: relative;
+  }
+}
